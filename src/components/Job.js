@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function({id, title,company,skills,time,location,jobType}){
+export default function({id, title,company,skills,time,location,jobType,handleClick}){
      
     return (
-        <div className="job-container">
+        <section className="job-container" onClick={handleClick}>
             <div className="job-primary-container">
                 <h2 className="job-title">{title}</h2>
                 <a href="#" className="job-company">{company}</a>
@@ -20,6 +20,6 @@ export default function({id, title,company,skills,time,location,jobType}){
             </div>
               
              
-        </div>
+        </section>
     )
 }

@@ -5,7 +5,7 @@ export default function(){
     return (
         
 
-        <div className="search-container">
+        <section className="search-container">
             <select name="type" id="search-select1" value={searchForm.type} onChange={(event) => handleSearchChange(event)}>
     <option value="">Type</option>
     <option value="Full Time">Full Time</option>
@@ -21,6 +21,6 @@ export default function(){
             <button className="search-button" onClick={handleClick}>Search</button>
             
              
-        </div>
+        </section>
     )
 }

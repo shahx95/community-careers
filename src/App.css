@@ -199,6 +199,148 @@ background-color: #e8e8e8;
    cursor: pointer;
   
   }
+
+
+/*DialogPost box*/
+.dialog-overlay{
+  position: fixed;
+  width: 100%;
+  /* border: solid red 10px; */
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}    
+
+.dialog-box{
+  /* border: solid green 2px; */
+  /* min-height : 500px; */
+  width: 500px;
+  max-width: 100%;
+  margin: 0 auto;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 999;
+  background-color: #ffffff;
+  padding: 10px 20px 40px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border: solid red 2px; */
+}
+
+.dialog-header{
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.dialog-cancel{ 
+  
+ cursor: pointer;
+ color: grey;
+ font-weight: 300;
+ 
+ border-radius: 35px;
+ background: transparent;
+}
+
+.dialog-cancel:hover{
+  text-decoration: underline;
+ 
+}
+
+.dialog-sections{ 
+  /* border: solid red 2px; */
+  
+  
+}
+.dialog-container{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  flex-wrap: wrap;
+  
+}
+.dialog-container >*{
+  margin: 5px;
+  flex: 1;
+  
+  
+}
+.dialog-container > select{
+  /* border: solid red; */
+
+}
+
+input{
+  border: none;
+border-radius: 2px;
+padding: 2px 6px;
+font-weight: 300;
+cursor: pointer;
+background-color: #e8e8e8;
+height: 30px;
+}
+
+.dialog-submit-btn{
+  font-weight: 600;
+  height: 50px;
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  background: #06cedb;
+     cursor: pointer;
+}
+.dialog-footer{
+  text-align: center;
+}  
+
+
+/*DialogCheck styling*/
+.job-description{
+  /* border: solid red; */
+ flex: 2;
+ height: 50px;
+}
+
+
+.dialog-check-header{
+ border: solid 2px green;
+ display: flex;
+ justify-content: space-between;
+ margin-bottom: 25px;
+}
+ 
+.dialog-check-content{
+  
+ border: solid 2px red;
+ width: 100%;
+ 
+}
+
+.dialog-check-body > *{
+ display: block;
+ margin-top: 5px; 
+ /* border: solid pink 2px; */
+}
+
+.dialog-check-skills{
+ /* border: red solid 2px; */
+ text-align: center;
+}
+
+.dialog-check-body > .job-skill{
+ display: inline;
+ border: solid red 2px;
+}
 /*---------------------------------------------*/
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

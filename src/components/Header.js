@@ -1,12 +1,12 @@
 import React from "react"
 
-export default function(){
+export default function({handleClick}){
     return (
         <section className="header-body">
             <div className="header-container">
                 <h1>Open Job Listing</h1>
-                <button  className="header-button">Post a Job</button>
-                {/* onClick={handleClick}  */}
+                <button   onClick={handleClick} className="header-button">Post a Job</button>
+                 
             </div>
         </section>
     )

@@ -3,6 +3,8 @@ import React from "react"
 import Header from "./components/Header"
 import Search from "./components/Search-Bar"
 import Job from "./components/Job"
+import DialogPost from "./components/Dialog-Post"
+import DialogCheck from "./components/Dialog-Check"
 import dummyData from "./dummyData"
 
 
@@ -112,7 +114,9 @@ function App() {
    
   return (
     <div className="App">
-      <Header />
+      <DialogCheck job={showDialogCheck} handleCancelClick={()=>setShowDialogCheck({})}/>
+      <DialogPost handleCancelClick={()=>clearJobDialogBox()} show={showDialogPost} formData={formData} handleChange={handleChange} handleJobSubmit={handleJobSubmit}/>
+      <Header handleClick={()=>setShowDialogPost(prevState => !prevState)}/>
       <Search />
       {console.log(dummyData)}
 
@@ -120,7 +124,7 @@ function App() {
 
       {dummyData.map(jobObject => {
       
-      return <Job key={jobObject.id} id={jobObject.id} title={jobObject.title} company={jobObject.companyName} skills={jobObject.skills} time="Today" location={jobObject.location} jobType={jobObject.type}/>
+      return <Job key={jobObject.id} id={jobObject.id} title={jobObject.title} company={jobObject.companyName} skills={jobObject.skills} time="Today" location={jobObject.location} jobType={jobObject.type} handleClick={()=>setShowDialogCheck(jobObject)}/>
       })}
 
     </div>
