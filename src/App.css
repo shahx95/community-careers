@@ -1,3 +1,11 @@
+*{
+  margin:0;
+  padding:0;
+    box-sizing:border-box;
+
+    font-family: 'Poppins', sans-serif; 
+  }
+
 .App {
   text-align: center;
 }
@@ -7,6 +15,97 @@
   pointer-events: none;
 }
 
+
+.header-body{
+  background-color: #030303;
+  width: 100%;
+  
+}
+
+.header-container{
+  margin:0 auto;
+  width: 90vw;
+  font-weight: 300;
+  padding: 25px 20px;
+  height: 250px;
+  background: #030303;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-container > h1{
+  font-weight: 300;
+  font-size: 2em;
+}
+
+.header-button{
+  font-weight: 600;
+  height: 50px;
+  width: 150px;
+  border: none;
+  border-radius: 5px;
+  background: #06cedb;
+  cursor: pointer;
+  padding: 0.25em 0.5em;
+font-weight: 300;
+font-size: 1.15em;
+}
+
+/* Start of search bar styling */
+.search-container{
+  margin:0 auto;
+  width: 90vw;
+  /* border: solid red 2px; */
+
+  background: white;
+    padding: 25px 90px;
+    margin-top: -35px;
+    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+     flex-wrap: wrap;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px #888888;
+}
+
+.search-container > *{
+    
+  display: inline-block;
+  /* border: 2px solid green; */
+ width: 250px;
+  flex-shrink: 0;
+  flex-grow:0;
+  overflow: hidden;
+  padding: 10px 20.5px;
+  margin: 10px 0px;
+}
+
+.search-button{
+  height: 50px;
+border: none;
+border-radius: 0.25em;
+padding: 0.25em 0.5em;
+font-weight: 300;
+font-size: 1.15em;
+cursor: pointer;
+background-color: #06cedb;
+}
+
+select{
+border: none;
+border-radius: 0.25em;
+padding: 0.25em 0.5em;
+font-weight: 300;
+font-size: 1.15em;
+font-family: 'poppins',sans-serif;
+cursor: pointer;
+background-color: #e8e8e8;
+}
+/*---------------------------------------------*/
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
