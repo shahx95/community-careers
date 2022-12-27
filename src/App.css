@@ -105,11 +105,128 @@ font-family: 'poppins',sans-serif;
 cursor: pointer;
 background-color: #e8e8e8;
 }
+
+
+
+/* Start of Job section */
+.job-title{
+  border: solid 2px red;
+}
+
+.job-primary-container{
+  border: 2px solid blue;
+}
+
+.job-container{
+  /* border: solid 5px red; */
+  padding: 10px;
+  /* margin-top: 15px; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border: solid 1px #e8e8e8;
+  cursor: pointer;
+  transition: .3s;
+  margin-bottom: 10px;
+  margin:0 auto;
+  width: 90vw;
+}
+
+.job-container:hover{
+  border-left: #4e6af3 5px solid;
+  box-shadow: 2px 2px 8px #888888;
+}
+
+.job-container > div{
+ 
+  /* border: 2px solid green; */
+  min-width: 33%;
+}
+.job-title{
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+.job-skill{
+  margin: 0px 5px;
+  padding: 5px;
+  background: #030303;
+  color: white;
+  font-size: small;
+  border-radius: 5px;
+ 
+
+}
+
+.skills-container{
+  border: 2px solid blue;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.job-company{
+  text-decoration: none;
+  color: black;
+  background: #06cedb;
+  padding: 5px;
+
+  border-radius: 5px;
+  /* font-size: 20px;  */
+}
+
+.job-right-section{
+  border: 2px solid blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.job-attributes{
+  font-weight: 300;
+  font-size: small;
+  margin-bottom: 15px;
+   
+}
+.job-button{
+  display: block;
+  padding: 5px 15px;
+  border: 2px solid black;
+  border-radius: 15px;
+  flex-grow: 0;
+  width: fit-content;
+   cursor: pointer;
+  
+  }
 /*---------------------------------------------*/
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+  .search-container > *{
+      display: block;
+      flex-grow: 1;
+  }
+  
+  .job-container > * {
+      width: 100%;
+      /* display: block; */
+      flex-grow: 1;
+      margin: 5px;
+      text-align: center;
+  }
+  
+  .skills-container{
+     
+    justify-content: center;
+}
 }
 
 .App-header {
