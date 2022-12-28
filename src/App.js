@@ -7,7 +7,7 @@ import DialogPost from "./components/Dialog-Post"
 import DialogCheck from "./components/Dialog-Check"
 import dummyData from "./dummyData"
 import { db } from './firebase-config'
-import { collection, orderBy, getDocs } from "firebase/firestore"
+import { collection, orderBy, getDocs, addDoc, serverTimestamp } from "firebase/firestore"
 
 
 function App() {
@@ -49,7 +49,55 @@ function App() {
   //   getUsers()
   // },[])
   
+  /*firebase stuff*/
+   
+    
+  const [jobs1, setJobs1] = React.useState([])
+  const jobsCollectionRef = collection(db,'jobs') 
   
+  const fetchJobs = async () => {
+       
+    const data = await getDocs(jobsCollectionRef) 
+    let dataArr = data.docs.map(  (doc) => ({ ...doc.data(), id: doc.id, postedOn: new Date(doc.data().postedOn.toDate()) }) )
+    //Math.floor((new Date() - new Date(doc.data().postedOn.toDate()))/86400000) }) )
+    console.log(dataArr)
+    setJobData(dataArr)
+  }
+
+
+  React.useEffect(()=>{
+   
+    
+    fetchJobs()
+
+    setLoading(false)
+     
+  },[])
+
+  const createJob = async(jobData) => {
+    const skillsArray = jobData.jobSkills.split(",").map(skill => skill.trim())
+    console.log("Creating job now")
+
+    // {
+    //   jobTitle: "",
+    //   type: "",
+    //   location: "",
+    //   companyName: "",
+    //   companyUrl: "",
+    //   jobLink: "",
+    //   jobDescription: "",
+    //   jobSkills: ""
+    // }
+ 
+    //TODO: add support for job description
+    await addDoc(jobsCollectionRef, {link: jobData.jobLink, companyUrl: jobData.companyUrl, location: jobData.location, companyName: jobData.companyName, title: jobData.jobTitle, type: jobData.type, skills: skillsArray, postedOn: serverTimestamp() })
+    fetchJobs()
+    setShowDialogPost(false)
+  }
+
+  /*end of firebase stuff */
+
+
   function handleChange(event){
     const {name, value, type, checked} = event.target
     setFormData(prevFormData => ({
@@ -62,6 +110,7 @@ function App() {
     event.preventDefault()
     arr.push(formData)
     
+    createJob(formData)
     //validate form inputs
     //add to database
     setFormData({
@@ -76,9 +125,9 @@ function App() {
   })
   }
   
-  console.log(arr[0])
+   
   
-   console.log(showDialogCheck)
+   
    
    
    function clearJobDialogBox(){
@@ -114,30 +163,9 @@ function App() {
    }))
   }
 
-    /*firebase stuff*/
-   
     
-    const [jobs1, setJobs1] = React.useState([])
-    const jobsCollectionRef = collection(db,'jobs') 
-    React.useEffect(()=>{
-     
-      const fetchJobs = async () => {
-         
-        const data = await getDocs(jobsCollectionRef) 
-        let dataArr = data.docs.map(  (doc) => ({ ...doc.data(), id: doc.id, postedOn: new Date(doc.data().postedOn.toDate()) }) )
-        //Math.floor((new Date() - new Date(doc.data().postedOn.toDate()))/86400000) }) )
-        console.log(dataArr)
-        setJobData(dataArr)
-      }
 
-      
-      fetchJobs()
-
-      setLoading(false)
-       
-    },[])
-
-    console.log(`loading status: ${loading}`)
+    // console.log(`loading status: ${loading}`)
 
     //end of app
    

@@ -42,7 +42,7 @@ export default function ({handleCancelClick, show, formData, handleChange, handl
                             <input className="job-description" type="text" name="jobDescription" placeholder="Job Description *" value={formData.jobDescription} onChange={(event) => handleChange(event)}/>
                             </div>
                             <div className="dialog-container">
-                                <input className="job-description" type="text" name="jobSkills" placeholder="Skills separated by comma e.g. Python, Javascript... *" value={formData.jobSkills} onChange={(event) => handleChange(event)}/>
+                                <input className="job-description" type="text" name="jobSkills" placeholder="Comma separated skills e.g. node, AWS, SQL, php... *" value={formData.jobSkills} onChange={(event) => handleChange(event)}/>
                             </div>
                         </div>
                     </div>

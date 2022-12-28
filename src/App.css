@@ -122,7 +122,7 @@ background-color: #e8e8e8;
   padding: 10px;
   /* margin-top: 15px; */
   display: flex;
-  flex-wrap: wrap;
+  
   align-items: center;
   justify-content: space-between;
   border: solid 1px #e8e8e8;
@@ -148,7 +148,7 @@ background-color: #e8e8e8;
   font-weight: 400;
 }
 .job-skill{
-  margin: 0px 5px;
+  margin: 2px 5px;
   padding: 5px;
   background: #030303;
   color: white;
@@ -390,6 +390,10 @@ height: 30px;
       flex-grow: 1;
   }
   
+  .job-container{
+    flex-wrap: wrap;
+  }
+
   .job-container > * {
       width: 100%;
       /* display: block; */
@@ -399,7 +403,7 @@ height: 30px;
   }
   
   .skills-container{
-     
+     flex-wrap: wrap;
     justify-content: center;
 }
 }
