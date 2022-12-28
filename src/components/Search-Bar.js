@@ -1,11 +1,9 @@
 import React from 'react'
 
-export default function(){
-    let searchForm={},handleClick={},handleSearchChange={}
+export default function({searchForm,handleClick,handleSearchChange}){
+     
     return (
-        
-
-        <section className="search-container">
+        <div className="search-container">
             <select name="type" id="search-select1" value={searchForm.type} onChange={(event) => handleSearchChange(event)}>
     <option value="">Type</option>
     <option value="Full Time">Full Time</option>
@@ -21,6 +19,6 @@ export default function(){
             <button className="search-button" onClick={handleClick}>Search</button>
             
              
-        </section>
+        </div>
     )
 }

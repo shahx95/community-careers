@@ -6,6 +6,8 @@ import Job from "./components/Job"
 import DialogPost from "./components/Dialog-Post"
 import DialogCheck from "./components/Dialog-Check"
 import dummyData from "./dummyData"
+import { db } from './firebase-config'
+import { collection, getDocs } from "firebase/firestore"
 
 
 function App() {
@@ -106,23 +108,45 @@ function App() {
     
   
    function handleSearchChange(event){
-     const {name, value, type, checked} = event.target
-    setSearchForm(prevData => ({
-      ...prevData, [name]: value
-    }))
-   }
+    const {name, value, type, checked} = event.target
+   setSearchForm(prevData => ({
+     ...prevData, [name]: value
+   }))
+  }
+
+    /*firebase stuff*/
+   
+    
+    const [jobs1, setJobs1] = React.useState([])
+    const jobsCollectionRef = collection(db,'jobs')
+    React.useEffect(()=>{
+      const fetchJobs = async () => {
+        const data = await getDocs(jobsCollectionRef) 
+        let dataArr = []
+      
+        data.docs.map(  (doc) => (dataArr.push({ ...doc.data(), id: doc.id })) )
+        setJobData(dataArr)
+      }
+
+      fetchJobs()
+    },[])
+
+
+
+    //end of app
+   
    
   return (
     <div className="App">
       <DialogCheck job={showDialogCheck} handleCancelClick={()=>setShowDialogCheck({})}/>
       <DialogPost handleCancelClick={()=>clearJobDialogBox()} show={showDialogPost} formData={formData} handleChange={handleChange} handleJobSubmit={handleJobSubmit}/>
       <Header handleClick={()=>setShowDialogPost(prevState => !prevState)}/>
-      <Search />
+      <Search searchForm={searchForm} handleClick={()=>submitSearch(searchForm)} handleSearchChange={handleSearchChange}/>
       {console.log(dummyData)}
 
 
 
-      {dummyData.map(jobObject => {
+      {jobData.map(jobObject => {
       
       return <Job key={jobObject.id} id={jobObject.id} title={jobObject.title} company={jobObject.companyName} skills={jobObject.skills} time="Today" location={jobObject.location} jobType={jobObject.type} handleClick={()=>setShowDialogCheck(jobObject)}/>
       })}
