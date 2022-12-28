@@ -35,7 +35,7 @@ function App() {
     jobSkills: ""
   })
   
-  let [jobData, setJobData] = React.useState(dummyData)
+  let [jobData, setJobData] = React.useState([])
   
   let [users, setUsers] = React.useState([])
   
@@ -94,14 +94,14 @@ function App() {
         jobSkills: ""
      })
    }
-   
+    
    function submitSearch(searchForm){
      console.log(searchForm)
-     setLoading(true)
+     
      let filter = dummyData.filter(obj => obj.type===searchForm.type || obj.location===searchForm.location)
       
           console.log(filter)
-          setLoading(false)
+          
      setJobData(filter)
    }
    
@@ -120,7 +120,9 @@ function App() {
     const [jobs1, setJobs1] = React.useState([])
     const jobsCollectionRef = collection(db,'jobs')
     React.useEffect(()=>{
+     
       const fetchJobs = async () => {
+         
         const data = await getDocs(jobsCollectionRef) 
         let dataArr = []
       
@@ -128,10 +130,13 @@ function App() {
         setJobData(dataArr)
       }
 
+      
       fetchJobs()
+
+       
     },[])
 
-
+    console.log(`loading status: ${loading}`)
 
     //end of app
    
@@ -142,15 +147,17 @@ function App() {
       <DialogPost handleCancelClick={()=>clearJobDialogBox()} show={showDialogPost} formData={formData} handleChange={handleChange} handleJobSubmit={handleJobSubmit}/>
       <Header handleClick={()=>setShowDialogPost(prevState => !prevState)}/>
       <Search searchForm={searchForm} handleClick={()=>submitSearch(searchForm)} handleSearchChange={handleSearchChange}/>
-      {console.log(dummyData)}
+      
 
-
+      {loading && <div className="loader-container"><span className="loader"></span></div>}
+      
+     
 
       {jobData.map(jobObject => {
       
       return <Job key={jobObject.id} id={jobObject.id} title={jobObject.title} company={jobObject.companyName} skills={jobObject.skills} time="Today" location={jobObject.location} jobType={jobObject.type} handleClick={()=>setShowDialogCheck(jobObject)}/>
       })}
-
+      
     </div>
   );
 }
