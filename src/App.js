@@ -7,7 +7,7 @@ import DialogPost from "./components/Dialog-Post"
 import DialogCheck from "./components/Dialog-Check"
 import dummyData from "./dummyData"
 import { db } from './firebase-config'
-import { collection, getDocs } from "firebase/firestore"
+import { collection, orderBy, getDocs } from "firebase/firestore"
 
 
 function App() {
@@ -118,21 +118,22 @@ function App() {
    
     
     const [jobs1, setJobs1] = React.useState([])
-    const jobsCollectionRef = collection(db,'jobs')
+    const jobsCollectionRef = collection(db,'jobs') 
     React.useEffect(()=>{
      
       const fetchJobs = async () => {
          
         const data = await getDocs(jobsCollectionRef) 
-        let dataArr = []
-      
-        data.docs.map(  (doc) => (dataArr.push({ ...doc.data(), id: doc.id })) )
+        let dataArr = data.docs.map(  (doc) => ({ ...doc.data(), id: doc.id, postedOn: new Date(doc.data().postedOn.toDate()) }) )
+        //Math.floor((new Date() - new Date(doc.data().postedOn.toDate()))/86400000) }) )
+        console.log(dataArr)
         setJobData(dataArr)
       }
 
       
       fetchJobs()
 
+      setLoading(false)
        
     },[])
 
@@ -149,14 +150,18 @@ function App() {
       <Search searchForm={searchForm} handleClick={()=>submitSearch(searchForm)} handleSearchChange={handleSearchChange}/>
       
 
-      {loading && <div className="loader-container"><span className="loader"></span></div>}
+      {
+      jobData.length === 0 ? 
+      <div className="loader-container"><span className="loader"></span></div> : 
+      jobData.map(jobObject => {
+      
+        return <Job key={jobObject.id} id={jobObject.id} title={jobObject.title} company={jobObject.companyName} skills={jobObject.skills} time={jobObject.postedOn} location={jobObject.location} jobType={jobObject.type} handleClick={()=>setShowDialogCheck(jobObject)}/>
+        })
+    }
       
      
 
-      {jobData.map(jobObject => {
       
-      return <Job key={jobObject.id} id={jobObject.id} title={jobObject.title} company={jobObject.companyName} skills={jobObject.skills} time="Today" location={jobObject.location} jobType={jobObject.type} handleClick={()=>setShowDialogCheck(jobObject)}/>
-      })}
       
     </div>
   );
