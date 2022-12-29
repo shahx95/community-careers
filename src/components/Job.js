@@ -16,7 +16,7 @@ export default function({id, title,company,skills,time,location,jobType,handleCl
                 
             </div>
             <div className="job-right-section">
-                <h5 className="job-attributes">{differenceInDays(Date.now(), time) < 1? `Today` : `${differenceInDays(Date.now(), time)} days ago`}  | {location} | {jobType}</h5>
+                <h5 className="job-attributes">{differenceInDays(Date.now(), time) < 1? `Today` : differenceInDays(Date.now(), time) === 1 ? `Yesterday` : `${differenceInDays(Date.now(), time)} days ago`}  | {location} | {jobType}</h5>
                 <a className="job-button">Check</a>
             </div>
               

@@ -21,15 +21,15 @@ export default function ({handleCancelClick, show, formData, handleChange, handl
                                 <input type="text" name="jobTitle" placeholder="Job Title *" value={formData.jobTitle} onChange={(event) => handleChange(event)}/>
                             <select name="type" id="select-type" value={formData.type} onChange={(event) => handleChange(event)}>
                                 <option value="">Type *</option>
-                                <option value="fulltime">Full Time</option>
-                                <option value="contract">Contract</option>
+                                <option value="Full Time">Full Time</option>
+                                <option value="Contract">Contract</option>
                             </select>
                             </div>
                             <div className="dialog-container">
                                 <select name="location" id="select-location" value={formData.location} onChange={(event) => handleChange(event)}>
                                 <option value="">Location *</option>
-                                <option value="remote">Remote</option>
-                                <option value="onsite">Onsite</option>
+                                <option value="Remote">Remote</option>
+                                <option value="Office">Office</option>
                             </select>
                             <input type="text" name="companyName" placeholder="Company Name *" value={formData.companyName} onChange={(event) => handleChange(event)}/>
                             </div>
