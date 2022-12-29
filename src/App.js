@@ -7,7 +7,7 @@ import DialogPost from "./components/Dialog-Post"
 import DialogCheck from "./components/Dialog-Check"
 import dummyData from "./dummyData"
 import { db } from './firebase-config'
-import { collection, orderBy, getDocs, addDoc, serverTimestamp } from "firebase/firestore"
+import { collection, query, where, orderBy, getDocs, addDoc, serverTimestamp } from "firebase/firestore"
 
 
 function App() {
@@ -144,14 +144,27 @@ function App() {
      })
    }
     
-   function submitSearch(searchForm){
+   async function submitSearch(searchForm){
      console.log(searchForm)
+     let q = ""
+     if(searchForm.location && searchForm.type){
+       q = query(jobsCollectionRef, where("location","==",searchForm.location),where("type","==",searchForm.type))
+
+     }
+     else if(searchForm.location){
+      q = query(jobsCollectionRef, where("location","==",searchForm.location))
+    }
+     else if(searchForm.type){
+       q = query(jobsCollectionRef, where("type","==",searchForm.type))
+     }
+     else return 
+
      
-     let filter = dummyData.filter(obj => obj.type===searchForm.type || obj.location===searchForm.location)
+     const filteredJobs = await getDocs(q)
+     console.log(filteredJobs.docs)
       
-          console.log(filter)
           
-     setJobData(filter)
+     setJobData(filteredJobs.docs.map(  (doc) => ({ ...doc.data(), id: doc.id, postedOn: new Date(doc.data().postedOn.toDate()) }) ))
    }
    
     
