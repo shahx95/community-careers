@@ -2,6 +2,12 @@ import React from "react"
 
 
 export default function({job, handleCancelClick}){
+    
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    
+     
+    
     if(!Object.keys(job).length){
         return 
         <> </>
@@ -18,7 +24,7 @@ export default function({job, handleCancelClick}){
                         </div>
                         
                         <div className="dialog-check-body">
-                            <span>Posted on:</span>
+                            <span>Posted on: {`${monthNames[job.postedOn.getMonth()]} ${job.postedOn.getDate()} ${job.postedOn.getFullYear()}`}</span>
                             <span>Job type: {job.type}</span>
                             <span>Job location: {job.location}</span>
                             <p>Job description:</p>
