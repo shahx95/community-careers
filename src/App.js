@@ -90,7 +90,7 @@ function App() {
     // }
  
     //TODO: add support for job description
-    await addDoc(jobsCollectionRef, {link: jobData.jobLink, companyUrl: jobData.companyUrl, location: jobData.location, companyName: jobData.companyName, title: jobData.jobTitle, type: jobData.type, skills: skillsArray, postedOn: serverTimestamp() })
+    await addDoc(jobsCollectionRef, {description: jobData.jobDescription, link: jobData.jobLink, companyUrl: jobData.companyUrl, location: jobData.location, companyName: jobData.companyName, title: jobData.jobTitle, type: jobData.type, skills: skillsArray, postedOn: serverTimestamp() })
     fetchJobs()
     setShowDialogPost(false)
   }

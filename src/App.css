@@ -50,7 +50,7 @@
   cursor: pointer;
   padding: 0.25em 0.5em;
 font-weight: 300;
-font-size: 1.15em;
+font-size: 1em;
 }
 
 /* Start of search bar styling */
@@ -110,11 +110,11 @@ background-color: #e8e8e8;
 
 /* Start of Job section */
 .job-title{
-  border: solid 2px red;
+  /* border: solid 2px red; */
 }
 
 .job-primary-container{
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 }
 
 .job-container{
@@ -152,16 +152,20 @@ background-color: #e8e8e8;
   padding: 5px;
   background: #030303;
   color: white;
-  font-size: small;
+  font-size: 0.8em;
   border-radius: 5px;
+  height: fit-content;
+  /* white-space:nowrap; */
  
 
 }
 
 .skills-container{
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
+  /* max-width: 30vw; */
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap; 
 }
 
 .job-company{
@@ -175,7 +179,7 @@ background-color: #e8e8e8;
 }
 
 .job-right-section{
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -313,7 +317,7 @@ height: 30px;
 
 
 .dialog-check-header{
- border: solid 2px green;
+ /* border: solid 2px green; */
  display: flex;
  justify-content: space-between;
  margin-bottom: 25px;
@@ -321,7 +325,7 @@ height: 30px;
  
 .dialog-check-content{
   
- border: solid 2px red;
+ /* border: solid 2px red; */
  width: 100%;
  
 }
@@ -335,14 +339,24 @@ height: 30px;
 .dialog-check-skills{
  /* border: red solid 2px; */
  text-align: center;
+ display: flex;
+    flex-wrap: wrap;
 }
 
 .dialog-check-body > .job-skill{
  display: inline;
- border: solid red 2px;
+ /* border: solid red 2px; */
 }
 
+.job-check-attribute{
+  font-weight: 600;
+}
 
+.job-check-title-anchor{
+  text-decoration: none;
+  color: #030303;
+  text-decoration: underline;
+}
 
 /*loading styling*/
 .loader-container {
@@ -378,11 +392,11 @@ height: 30px;
 
 @media only screen and (max-width: 600px) {
   body {
-    background-color: lightblue;
+    /* background-color: lightblue; */
   }
 
   .search-container{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     text-align: center;
   }
   .search-container > *{
@@ -408,26 +422,4 @@ height: 30px;
 }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+ 
