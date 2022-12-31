@@ -23,16 +23,18 @@ export default function({job, handleCancelClick}){
                         </div>
                         
                         <div className="dialog-check-body">
+                            
                             <div><span className="job-check-attribute">Posted on: </span><span>{`${monthNames[job.postedOn.getMonth()]} ${job.postedOn.getDate()} ${job.postedOn.getFullYear()}`}</span></div>
                             <div> <span className="job-check-attribute">Job type: </span> <span>{job.type}</span></div>    
                             <div> <span className="job-check-attribute">Job location: </span> <span>{job.location}</span></div>    
                             <div> <span className="job-check-attribute">Job description: </span> <span>{job.description}</span></div>    
-                                
+                            <div> <span className="job-check-attribute">Apply: </span> <a href={job.link}>{job.link}</a></div>     
                             
                             <span>Skills:</span>
                             <div className="dialog-check-skills">
                                {job.skills.map(skill => <span className="job-skill">{skill}</span>)} 
                             </div>  
+                            
                         </div>
                         
                     </div>

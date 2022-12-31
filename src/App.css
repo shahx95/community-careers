@@ -20,6 +20,7 @@
   background-color: #030303;
   width: 100%;
   
+  
 }
 
 .header-container{
@@ -33,6 +34,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
 }
 
 .header-container > h1{

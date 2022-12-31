@@ -58,7 +58,7 @@ function App() {
   const jobsCollectionRef = collection(db,'jobs') 
   
   const fetchJobs = async () => {
-       
+    setJobData([])   
     const data = await getDocs(query(jobsCollectionRef, orderBy("postedOn","desc"))) 
     let dataArr = data.docs.map(  (doc) => ({ ...doc.data(), id: doc.id, postedOn: new Date(doc.data().postedOn.toDate()) }) )
     //Math.floor((new Date() - new Date(doc.data().postedOn.toDate()))/86400000) }) )
@@ -153,6 +153,7 @@ function App() {
    }
     
    async function submitSearch(searchForm){
+    setJobData([])
      console.log(searchForm)
      let q = ""
      if(searchForm.location && searchForm.type){
