@@ -106,7 +106,18 @@ cursor: pointer;
 background-color: #e8e8e8;
 }
 
+.reset-search-container{
+  margin:0 auto;
+  width: 90vw;
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: flex-end;
+}
 
+.reset-search-button{
+  cursor: pointer;
+  color: #888888;
+}
 
 /* Start of Job section */
 .job-title{

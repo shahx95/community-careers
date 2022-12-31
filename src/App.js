@@ -35,6 +35,8 @@ function App() {
     jobSkills: ""
   })
   
+  let [showReset,setShowReset] = React.useState(false)
+
   let [jobData, setJobData] = React.useState([])
   
   let [users, setUsers] = React.useState([])
@@ -62,6 +64,11 @@ function App() {
     //Math.floor((new Date() - new Date(doc.data().postedOn.toDate()))/86400000) }) )
     console.log(dataArr)
     setJobData(dataArr)
+    setSearchForm({
+      type: "",
+      location: ""
+    })
+    setShowReset(false)
   }
 
 
@@ -93,6 +100,7 @@ function App() {
     await addDoc(jobsCollectionRef, {description: jobData.jobDescription, link: jobData.jobLink, companyUrl: jobData.companyUrl, location: jobData.location, companyName: jobData.companyName, title: jobData.jobTitle, type: jobData.type, skills: skillsArray, postedOn: serverTimestamp() })
     fetchJobs()
     setShowDialogPost(false)
+    
   }
 
   /*end of firebase stuff */
@@ -162,7 +170,7 @@ function App() {
      
      const filteredJobs = await getDocs(q)
      console.log(filteredJobs.docs)
-      
+     setShowReset(true) 
           
      setJobData(filteredJobs.docs.map(  (doc) => ({ ...doc.data(), id: doc.id, postedOn: new Date(doc.data().postedOn.toDate()) }) ))
    }
@@ -190,6 +198,7 @@ function App() {
       <Header handleClick={()=>setShowDialogPost(prevState => !prevState)}/>
       <Search searchForm={searchForm} handleClick={()=>submitSearch(searchForm)} handleSearchChange={handleSearchChange}/>
       
+      {showReset && <div className='reset-search-container'><span className='reset-search-button' onClick={fetchJobs}>x Reset Search</span></div>}
 
       {
       jobData.length === 0 ? 
