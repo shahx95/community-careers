@@ -6,8 +6,11 @@
     font-family: 'Poppins', sans-serif; 
   }
 
+  
+
 .App {
   /* text-align: center; */
+  
 }
 
 .App-logo {
@@ -64,7 +67,7 @@ font-size: 1em;
   background: white;
     padding: 25px 50px;
     margin-top: -35px;
-    margin-bottom: 35px;
+   
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -122,6 +125,10 @@ background-color: #e8e8e8;
 }
 
 /* Start of Job section */
+.job-list-container{
+  
+  margin: 35px 0px;
+}
 .job-title{
   /* border: solid 2px red; */
 }
@@ -396,6 +403,28 @@ height: 30px;
   }
   } 
 
+
+  /*footer*/
+  footer{
+    
+    background-color: #030303;
+    color:#e8e8e8;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    
+  }
+
+  .footer-container{
+    width: 90vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: solid red 2px; */
+    
+  }
+
 /*---------------------------------------------*/
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -419,6 +448,7 @@ height: 30px;
   
   .job-container{
     flex-wrap: wrap;
+     
   }
 
   .job-container > * {

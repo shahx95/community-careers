@@ -5,6 +5,7 @@ import Search from "./components/Search-Bar"
 import Job from "./components/Job"
 import DialogPost from "./components/Dialog-Post"
 import DialogCheck from "./components/Dialog-Check"
+import Footer from "./components/Footer"
 import dummyData from "./dummyData"
 import { db } from './firebase-config'
 import { collection, query, where, orderBy, getDocs, addDoc, serverTimestamp } from "firebase/firestore"
@@ -201,15 +202,20 @@ function App() {
       
       {showReset && <div className='reset-search-container'><span className='reset-search-button' onClick={fetchJobs}>x Reset Search</span></div>}
 
+
       {
       jobData.length === 0 ? 
       <div className="loader-container"><span className="loader"></span></div> : 
-      jobData.map(jobObject => {
+      <div className='job-list-container'>
+        {jobData.map(jobObject => {
       
-        return <Job key={jobObject.id} id={jobObject.id} title={jobObject.title} company={jobObject.companyName} skills={jobObject.skills} time={jobObject.postedOn} location={jobObject.location} jobType={jobObject.type} handleClick={()=>setShowDialogCheck(jobObject)}/>
-        })
+      return <Job key={jobObject.id} id={jobObject.id} title={jobObject.title} company={jobObject.companyName} skills={jobObject.skills} time={jobObject.postedOn} location={jobObject.location} jobType={jobObject.type} handleClick={()=>setShowDialogCheck(jobObject)}/>
+      })}
+
+      </div>
     }
       
+      <Footer/>
      
 
       
