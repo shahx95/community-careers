@@ -49,9 +49,14 @@ git clone  <git lab template url> <project_name>
 cd <project_name>
 npm install
 ```
-- Create .env file
+- Create .env file with the following fields for your Firebase Firestore config
 ```
-Refer to documentation
+  REACT_APP_APIKEY  
+  REACT_APP_AUTHDOMAIN  
+  REACT_APP_PROJECTID  
+  REACT_APP_STORAGEBUCKET  
+  REACT_APP_MESSAGINGSENDERID  
+  REACT_APP_APPID  
 ```
 - Build and run the project
 ```
