@@ -1,5 +1,10 @@
 # Community Careers
 
+
+![Header](community-careers-github.png)
+
+
+
 Welcome to the Community Careers repository! 
 
 This is an open source project that aims to create a simple and easy-to-use job listing platform for small communities. Our goal is to connect local job seekers with job openings in their area, and to help businesses find the right talent for their needs. 
