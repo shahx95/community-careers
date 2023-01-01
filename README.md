@@ -4,7 +4,7 @@
 ![Header](readme_images/community-careers-github.png)
 
 
-
+## Mission
 Welcome to the Community Careers repository! 
 
 This is an open source project that aims to create a simple and easy-to-use job listing platform for niche communities. Our goal is to connect local job seekers with job openings in their area, and to help businesses find the right talent for their needs. 
@@ -25,3 +25,35 @@ Checking job details view
 ![Post Job](readme_images/post-job.png)
 
 Posting job view
+
+## Future Optimizations
+- Adding documentation
+- Improving accessibility and support for marginalized and disabled users
+- Adding search by skills filter
+- Adding abuse filter
+- Improving responsiveness
+
+## How to Run
+
+### Pre-requisites
+- Install [Node.js](https://nodejs.org/en/)  
+
+
+### Getting started
+- Clone the repository
+```
+git clone  <git lab template url> <project_name>
+```
+- Install dependencies
+```
+cd <project_name>
+npm install
+```
+- Create .env file
+```
+Refer to documentation
+```
+- Build and run the project
+```
+npm start
+```
