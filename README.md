@@ -1,7 +1,7 @@
 # Community Careers
 
 
-![Header](community-careers-github.png)
+![Header](readme_images\community-careers-github.png)
 
 
 
@@ -12,3 +12,8 @@ This is an open source project that aims to create a simple and easy-to-use job 
 The website is built with Javascript and React. We welcome contributions from the community and encourage you to fork the repository and submit pull requests. 
 
 If you have any questions or ideas for improving the project, please open an issue.
+
+## Screenshots
+![Home Page](readme_images\homepage.png)
+![Check Job Details](readme_images\check-job.png)
+![Post Job](readme_images\post-job.png)
