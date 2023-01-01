@@ -15,5 +15,13 @@ If you have any questions or ideas for improving the project, please open an iss
 
 ## Screenshots
 ![Home Page](readme_images/homepage.png)
+
+Homepage view
+
 ![Check Job Details](readme_images/view-job.png)
+
+Checking job details view
+
 ![Post Job](readme_images/post-job.png)
+
+Posting job view
