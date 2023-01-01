@@ -14,6 +14,6 @@ The website is built with Javascript and React. We welcome contributions from th
 If you have any questions or ideas for improving the project, please open an issue.
 
 ## Screenshots
-![Home Page](readme_images\homepage.png)
-![Check Job Details](readme_images\check-job.png)
-![Post Job](readme_images\post-job.png)
+![Home Page](readme_images/homepage.png)
+![Check Job Details](readme_images/check-job.png)
+![Post Job](readme_images/post-job.png)
