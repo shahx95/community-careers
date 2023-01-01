@@ -1,7 +1,7 @@
 # Community Careers
 
 
-![Header](readme_images\community-careers-github.png)
+![Header](readme_images/community-careers-github.png)
 
 
 
