@@ -8,7 +8,8 @@ import DialogCheck from "./components/Dialog-Check"
 import Footer from "./components/Footer"
 import dummyData from "./dummyData"
 import { db } from './firebase-config'
-import { collection, query, where, orderBy, getDocs, addDoc, serverTimestamp } from "firebase/firestore"
+import { collection, query, where, orderBy, getDocs, addDoc, doc, deleteDoc, serverTimestamp } from "firebase/firestore"
+import { differenceInDays } from 'date-fns'
 
 
 function App() {
@@ -58,12 +59,32 @@ function App() {
   const [jobs1, setJobs1] = React.useState([])
   const jobsCollectionRef = collection(db,'jobs') 
   
+  const deleteJob = async(id) => {
+    
+    const deleteDocReference = doc(db, 'jobs', id)
+    await deleteDoc(deleteDocReference)
+  }
+
   const fetchJobs = async () => {
     setJobData([])   
-    const data = await getDocs(query(jobsCollectionRef, orderBy("postedOn","desc"))) 
-    let dataArr = data.docs.map(  (doc) => ({ ...doc.data(), id: doc.id, postedOn: new Date(doc.data().postedOn.toDate()) }) )
+    const allJobData = await getDocs(query(jobsCollectionRef, orderBy("postedOn","desc"))) 
+    let data = []
+    allJobData.docs.forEach(doc => {
+       
+      if(differenceInDays(Date.now(),new Date(doc.data().postedOn.toDate())) > 31){
+        //delete jobs older than 31 days
+        
+        deleteJob(doc.id)
+        // console.log("Deleted job")
+      }
+      else{
+        data.push(doc)
+      }
+    })
+    console.log(data[0].id)
+    let dataArr = data.map(  (doc) => ({ ...doc.data(), id: doc.id, postedOn: new Date(doc.data().postedOn.toDate()) }) )
     //Math.floor((new Date() - new Date(doc.data().postedOn.toDate()))/86400000) }) )
-    console.log(dataArr)
+    // console.log(dataArr)
     setJobData(dataArr)
     setSearchForm({
       type: "",
