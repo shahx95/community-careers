@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/community-careers/static/css/main.aedd4a75.css",
+    "main.js": "/community-careers/static/js/main.4d7c1908.js",
+    "static/js/787.d0723a7e.chunk.js": "/community-careers/static/js/787.d0723a7e.chunk.js",
+    "index.html": "/community-careers/index.html",
+    "main.aedd4a75.css.map": "/community-careers/static/css/main.aedd4a75.css.map",
+    "main.4d7c1908.js.map": "/community-careers/static/js/main.4d7c1908.js.map",
+    "787.d0723a7e.chunk.js.map": "/community-careers/static/js/787.d0723a7e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aedd4a75.css",
+    "static/js/main.4d7c1908.js"
+  ]
+}
